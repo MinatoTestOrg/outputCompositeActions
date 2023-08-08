@@ -9,14 +9,13 @@ runs:
   using: "composite"
   
   steps:
-    - name: Repo checkout
-      uses: actions/checkout@v3
-
     - name: Dev build
+      shell: bash
       uses: ./.github/actions/dev-build
       id: dev-build
 
     - name: variable update post dev build run
+      shell: bash
       env:
         var1: ${{ steps.dev-build.outputs.var1 }}
       run: echo ${{ env.var1 }}
