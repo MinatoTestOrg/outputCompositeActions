@@ -1,0 +1,14 @@
+name: dev-build
+description: dev-build action
+
+outputs:
+  var1:
+    value: ${{ steps.var1-output.outpus.var1 }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: first step
+      shell: bash
+      id: var1-output
+      run: echo "var1=$(echo 'Minato Namikaze Maran')" >> $$ GITHUB_OUTPUT
